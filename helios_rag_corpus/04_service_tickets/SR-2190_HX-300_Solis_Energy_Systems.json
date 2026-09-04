@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-2190",
+  "customer": "Solis Energy Systems",
+  "product": "HX-300",
+  "opened_date": "2026-06-07",
+  "severity": "Low",
+  "status": "Closed",
+  "subject": "Noise during high-flow operation",
+  "operating_conditions": {
+    "fluid": "Closed-loop utility water",
+    "temperature": "92°C",
+    "pressure": "12.5 bar",
+    "seal": "FKM",
+    "hours": "980 h"
+  },
+  "symptoms": "Noise increased only at maximum requested flow.",
+  "diagnosis": "Operating point was above the preferred region and suction margin was low.",
+  "resolution": "Adjusted control setpoint and confirmed quieter operation at design flow.",
+  "service_lesson": "Do not interpret maximum published flow as the preferred continuous duty point without hydraulic review.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

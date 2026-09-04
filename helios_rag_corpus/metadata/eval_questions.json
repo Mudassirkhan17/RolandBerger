@@ -1,0 +1,93 @@
+[
+  {
+    "id": "Q01",
+    "question": "Can the HX-240 run continuously at 95°C with the standard EPDM seal?",
+    "expected_answer": "The pump body can operate continuously at 95°C, but the standard EPDM seal is recommended only up to 90°C continuous. Use FKM for continuous 95°C duty and review chemistry if relevant.",
+    "required_sources": [
+      "HEL-HX-240-DS-3.1_Product_Datasheet.pdf",
+      "HEL-HX-240-MAN-4.2_Operating_and_Maintenance_Manual.pdf",
+      "HEL-APPLICATION-NOTE-09_Hot_Water_and_Chemical_Service.pdf"
+    ]
+  },
+  {
+    "id": "Q02",
+    "question": "Which model should be used for a 17 bar, 105°C, 125 m³/h water-based coating circulation duty?",
+    "expected_answer": "HX-400. HX-300 is limited to 16 bar, while HX-400 supports up to 20 bar and covers the stated flow and temperature.",
+    "required_sources": [
+      "HEL-PUMP-FAMILY-2026_Product_Selection_Guide.pdf",
+      "PR-2026-033_Rhenus_Coatings_BV_HX-400_Proposal.pdf",
+      "EM-2026-109_Rhenus_Coatings_BV.eml"
+    ]
+  },
+  {
+    "id": "Q03",
+    "question": "What seal should be used on HX-520 at 132°C continuous hygienic service?",
+    "expected_answer": "Hygienic FKM. The pump body supports 132°C, but the standard hygienic EPDM guidance is 125°C continuous.",
+    "required_sources": [
+      "HEL-HX-520-DS-3.1_Product_Datasheet.pdf",
+      "PR-2026-026_MedicaNova_SA_HX-520_Proposal.pdf",
+      "EM-2026-096_MedicaNova_SA.eml"
+    ]
+  },
+  {
+    "id": "Q04",
+    "question": "What caused the low-flow issue at Baltic Process after HX-300 commissioning?",
+    "expected_answer": "A blocked suction strainer containing construction debris caused inlet restriction; it was not a product-capability failure.",
+    "required_sources": [
+      "SR-1907_HX-300_Baltic_Process_OÜ.json"
+    ]
+  },
+  {
+    "id": "Q05",
+    "question": "Can NordChem extend the HX-400 planned inspection from 6,000 to 7,000 hours?",
+    "expected_answer": "The available service guidance does not approve extension. Standard routine inspection is 6,000 hours and severe thermal cycling may require 3,000-hour inspection; service engineering review would be required for deviation.",
+    "required_sources": [
+      "HEL-MAINT-2026_Process_Pump_Maintenance_Standard.pdf",
+      "SR-2360_HX-400_NordChem_GmbH.json",
+      "EM-2026-121_NordChem_GmbH.eml"
+    ]
+  },
+  {
+    "id": "Q06",
+    "question": "What is the maximum pressure of the HX-240?",
+    "expected_answer": "10 bar.",
+    "required_sources": [
+      "HEL-HX-240-DS-3.1_Product_Datasheet.pdf"
+    ]
+  },
+  {
+    "id": "Q07",
+    "question": "Which previous customer used HX-240 with FKM for chemically treated water below 90°C?",
+    "expected_answer": "ACME Chemicals; its 2025 proposal used HX-240 with FKM at 88°C, 7 bar and 70 m³/h.",
+    "required_sources": [
+      "PR-2025-041_ACME_Chemicals_HX-240_Proposal.pdf"
+    ]
+  },
+  {
+    "id": "Q08",
+    "question": "Is HX-300 suitable for hygienic pharmaceutical service by default?",
+    "expected_answer": "No. The HX-300 manual/product guidance does not position it as a hygienic/sterile design; HX-520 is the hygienic model.",
+    "required_sources": [
+      "HEL-PUMP-FAMILY-2026_Product_Selection_Guide.pdf",
+      "HEL-HX-300-DS-3.1_Product_Datasheet.pdf"
+    ]
+  },
+  {
+    "id": "Q09",
+    "question": "Can HX-240 safely pump concentrated nitric acid at 80°C?",
+    "expected_answer": "The corpus does not contain enough approved chemical-compatibility information to confirm this. Escalate to Application Engineering with composition and concentration details.",
+    "required_sources": [
+      "HEL-AE-PR-17_Chemical_Compatibility_Escalation_Procedure.pdf",
+      "HEL-SEAL-GUIDE-2026_Seal_Compatibility_Quick_Guide.pdf"
+    ]
+  },
+  {
+    "id": "Q10",
+    "question": "What changed between the archived HX-240 datasheet and the current datasheet?",
+    "expected_answer": "The archived version listed 90°C continuous pump temperature; current v3.1 lists 95°C continuous and includes revised seal guidance and maintenance information. Current approved version must take precedence.",
+    "required_sources": [
+      "HEL-HX-240-DS-2.3_ARCHIVED_Product_Datasheet.pdf",
+      "HEL-HX-240-DS-3.1_Product_Datasheet.pdf"
+    ]
+  }
+]

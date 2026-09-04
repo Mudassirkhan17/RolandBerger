@@ -1,0 +1,16 @@
+From: sales@helios-demo.example
+To: pieter.jansen@rhenus-coatings.example
+Date: 2026-04-03
+Subject: RE: Pump selection for 17 bar coating circulation
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Pieter,
+
+The HX-300 is limited to 16 bar maximum system pressure, so it should not be selected for a 17 bar requirement. The HX-400 supports up to 20 bar and also covers the stated temperature and flow conditions.
+
+Our previous technical-commercial proposal therefore used an HX-400 with FKM seal, subject to final duty-point validation.
+
+Regards,
+Helios Sales Engineering

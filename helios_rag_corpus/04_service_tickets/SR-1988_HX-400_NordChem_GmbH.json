@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-1988",
+  "customer": "NordChem GmbH",
+  "product": "HX-400",
+  "opened_date": "2026-03-28",
+  "severity": "Medium",
+  "status": "Closed",
+  "subject": "Vibration increase during thermal cycling",
+  "operating_conditions": {
+    "fluid": "Hot process water",
+    "temperature": "120°C cycling to 65°C",
+    "pressure": "11.5 bar",
+    "seal": "FKM",
+    "hours": "2,760 h"
+  },
+  "symptoms": "Vibration increased during repeated hot/cold cycling.",
+  "diagnosis": "Coupling alignment had drifted due to thermal movement and pipe support load.",
+  "resolution": "Realigned pump and motor, adjusted pipe supports, verified vibration under hot condition.",
+  "service_lesson": "For severe thermal cycling, inspect alignment and supports; use shortened 3,000-hour inspection interval.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

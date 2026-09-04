@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-2360",
+  "customer": "NordChem GmbH",
+  "product": "HX-400",
+  "opened_date": "2026-07-29",
+  "severity": "Low",
+  "status": "Closed",
+  "subject": "Preventive maintenance interval clarification",
+  "operating_conditions": {
+    "fluid": "Hot process water",
+    "temperature": "118°C",
+    "pressure": "12 bar",
+    "seal": "FKM",
+    "hours": "5,600 h"
+  },
+  "symptoms": "Customer requested extension of planned maintenance beyond 6,000 h.",
+  "diagnosis": "Standard routine inspection interval is 6,000 h; severe thermal cycling shortens it to 3,000 h.",
+  "resolution": "Recommended completing inspection at 6,000 h rather than extending interval.",
+  "service_lesson": "Maintenance intervals should not be extended without service engineering review.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

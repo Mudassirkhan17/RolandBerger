@@ -1,0 +1,41 @@
+file,category,document_type,product,customer,status,version,effective_date,access,synthetic
+01_product_documentation/HEL-HX-240-DS-3.1_Product_Datasheet.pdf,product_documentation,Product Datasheet,HX-240,,Approved,3.1,2026-01-15,"Sales, Service, Engineering",true
+01_product_documentation/HEL-HX-300-DS-3.1_Product_Datasheet.pdf,product_documentation,Product Datasheet,HX-300,,Approved,3.1,2026-01-15,"Sales, Service, Engineering",true
+01_product_documentation/HEL-HX-400-DS-3.1_Product_Datasheet.pdf,product_documentation,Product Datasheet,HX-400,,Approved,3.1,2026-01-15,"Sales, Service, Engineering",true
+01_product_documentation/HEL-HX-520-DS-3.1_Product_Datasheet.pdf,product_documentation,Product Datasheet,HX-520,,Approved,3.1,2026-01-15,"Sales, Service, Engineering",true
+01_product_documentation/HEL-HX-240-DS-2.3_ARCHIVED_Product_Datasheet.pdf,product_documentation,Archived Product Datasheet,HX-240,,Archived,2.3,2024-06-12,"Sales, Service, Engineering",true
+01_product_documentation/HEL-PUMP-FAMILY-2026_Product_Selection_Guide.pdf,product_documentation,Product Selection Guide,,,Approved,1.0,2026-02-01,"Sales, Service, Engineering",true
+01_product_documentation/HEL-SEAL-GUIDE-2026_Seal_Compatibility_Quick_Guide.pdf,product_documentation,Seal Compatibility Guide,,,Approved,1.2,2026-03-10,"Sales, Service, Engineering",true
+02_technical_manuals/HEL-HX-240-MAN-4.2_Operating_and_Maintenance_Manual.pdf,technical_manuals,Operating and Maintenance Manual,HX-240,,Approved,4.2,2026-02-15,"Service, Engineering; Sales read-only",true
+02_technical_manuals/HEL-HX-300-MAN-2.7_Operating_and_Maintenance_Manual.pdf,technical_manuals,Operating and Maintenance Manual,HX-300,,Approved,2.7,2026-03-01,"Service, Engineering; Sales read-only",true
+02_technical_manuals/HEL-HX-400-MAN-2.4_Operating_and_Maintenance_Manual.pdf,technical_manuals,Operating and Maintenance Manual,HX-400,,Approved,2.4,2026-03-12,"Service, Engineering; Sales read-only",true
+02_technical_manuals/HEL-HX-520-MAN-1.9_Hygienic_Installation_and_Operating_Manual.pdf,technical_manuals,Hygienic Installation and Operating Manual,HX-520,,Approved,1.9,2026-04-05,"Service, Engineering; Sales read-only",true
+02_technical_manuals/HEL-MAINT-2026_Process_Pump_Maintenance_Standard.pdf,technical_manuals,Maintenance Standard,,,Approved,2.0,2026-04-20,"Service, Engineering; Sales read-only",true
+02_technical_manuals/HEL-AE-PR-17_Chemical_Compatibility_Escalation_Procedure.pdf,technical_manuals,Engineering Procedure,,,Approved,3.0,2026-05-08,"Sales, Service, Engineering",true
+03_previous_proposals/PR-2025-041_ACME_Chemicals_HX-240_Proposal.pdf,previous_proposals,Historical Proposal,HX-240,ACME Chemicals,Historical,1.0,2025-11-18,"Sales, Service",true
+03_previous_proposals/PR-2025-067_NordChem_GmbH_HX-400_Proposal.pdf,previous_proposals,Historical Proposal,HX-400,NordChem GmbH,Historical,1.0,2025-12-09,"Sales, Service",true
+03_previous_proposals/PR-2026-012_Baltic_Process_OÜ_HX-300_Proposal.pdf,previous_proposals,Historical Proposal,HX-300,Baltic Process OÜ,Historical,1.0,2026-02-02,"Sales, Service",true
+03_previous_proposals/PR-2026-019_Alpine_Foods_AG_HX-520_Proposal.pdf,previous_proposals,Historical Proposal,HX-520,Alpine Foods AG,Historical,1.0,2026-02-21,"Sales, Service",true
+03_previous_proposals/PR-2026-026_MedicaNova_SA_HX-520_Proposal.pdf,previous_proposals,Historical Proposal,HX-520,MedicaNova SA,Historical,1.0,2026-03-08,"Sales, Service",true
+03_previous_proposals/PR-2026-033_Rhenus_Coatings_BV_HX-400_Proposal.pdf,previous_proposals,Historical Proposal,HX-400,Rhenus Coatings BV,Historical,1.0,2026-04-03,"Sales, Service",true
+03_previous_proposals/PR-2026-044_Solis_Energy_Systems_HX-300_Proposal.pdf,previous_proposals,Historical Proposal,HX-300,Solis Energy Systems,Historical,1.0,2026-05-11,"Sales, Service",true
+03_previous_proposals/PR-2026-052_Delta_Process_GmbH_HX-240_Proposal.pdf,previous_proposals,Historical Proposal,HX-240,Delta Process GmbH,Historical,1.0,2026-06-06,"Sales, Service",true
+04_service_tickets/SR-1842_HX-240_Delta_Process_GmbH.json,service_tickets,Service Ticket,HX-240,Delta Process GmbH,Closed,1.0,2026-01-14,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-1907_HX-300_Baltic_Process_OÜ.json,service_tickets,Service Ticket,HX-300,Baltic Process OÜ,Closed,1.0,2026-02-17,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-1988_HX-400_NordChem_GmbH.json,service_tickets,Service Ticket,HX-400,NordChem GmbH,Closed,1.0,2026-03-28,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2051_HX-520_Alpine_Foods_AG.json,service_tickets,Service Ticket,HX-520,Alpine Foods AG,Closed,1.0,2026-04-26,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2116_HX-400_Rhenus_Coatings_BV.json,service_tickets,Service Ticket,HX-400,Rhenus Coatings BV,Closed,1.0,2026-05-18,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2190_HX-300_Solis_Energy_Systems.json,service_tickets,Service Ticket,HX-300,Solis Energy Systems,Closed,1.0,2026-06-07,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2244_HX-520_MedicaNova_SA.json,service_tickets,Service Ticket,HX-520,MedicaNova SA,Closed,1.0,2026-06-23,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2312_HX-240_ACME_Chemicals.json,service_tickets,Service Ticket,HX-240,ACME Chemicals,Closed,1.0,2026-07-08,"Service, Engineering; Sales read-only",true
+04_service_tickets/SR-2360_HX-400_NordChem_GmbH.json,service_tickets,Service Ticket,HX-400,NordChem GmbH,Closed,1.0,2026-07-29,"Service, Engineering; Sales read-only",true
+05_customer_correspondence/EM-2026-071_ACME_Chemicals.eml,customer_correspondence,Customer Email,,ACME Chemicals,Historical,1.0,2026-07-07,"Sales, Service",true
+05_customer_correspondence/EM-2026-072_ACME_Chemicals.eml,customer_correspondence,Customer Email,,ACME Chemicals,Historical,1.0,2026-07-08,"Sales, Service",true
+05_customer_correspondence/EM-2026-083_Delta_Process_GmbH.eml,customer_correspondence,Customer Email,,Delta Process GmbH,Historical,1.0,2026-06-05,"Sales, Service",true
+05_customer_correspondence/EM-2026-084_Delta_Process_GmbH.eml,customer_correspondence,Customer Email,,Delta Process GmbH,Historical,1.0,2026-06-06,"Sales, Service",true
+05_customer_correspondence/EM-2026-095_MedicaNova_SA.eml,customer_correspondence,Customer Email,,MedicaNova SA,Historical,1.0,2026-03-06,"Sales, Service",true
+05_customer_correspondence/EM-2026-096_MedicaNova_SA.eml,customer_correspondence,Customer Email,,MedicaNova SA,Historical,1.0,2026-03-08,"Sales, Service",true
+05_customer_correspondence/EM-2026-108_Rhenus_Coatings_BV.eml,customer_correspondence,Customer Email,,Rhenus Coatings BV,Historical,1.0,2026-04-01,"Sales, Service",true
+05_customer_correspondence/EM-2026-109_Rhenus_Coatings_BV.eml,customer_correspondence,Customer Email,,Rhenus Coatings BV,Historical,1.0,2026-04-03,"Sales, Service",true
+05_customer_correspondence/EM-2026-121_NordChem_GmbH.eml,customer_correspondence,Customer Email,,NordChem GmbH,Historical,1.0,2026-07-30,"Sales, Service",true
+01_product_documentation/HEL-APPLICATION-NOTE-09_Hot_Water_and_Chemical_Service.pdf,product_documentation,Application Note,,,Approved,1.1,2026-05-18,"Sales, Service, Engineering",true

@@ -1,0 +1,14 @@
+{
+  "name": "helios-copilot",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "python3 -m venv backend/.venv && backend/.venv/bin/python -m pip install -r backend/requirements.txt && npm install --prefix frontend",
+    "dev": "python3 scripts/dev.py",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "backend/.venv/bin/python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "evaluate": "backend/.venv/bin/python -m backend.evaluate",
+    "build": "npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend"
+  }
+}

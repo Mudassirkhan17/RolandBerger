@@ -1,0 +1,16 @@
+From: service@helios-demo.example
+To: kai.schulz@delta-process.example
+Date: 2026-06-06
+Subject: RE: Seal material recommendation for 92C alkaline wash water
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Kai,
+
+For the HX-240, the standard EPDM seal guidance is 90°C continuous. At 92°C and an 18-hour/day duty, we recommend moving to the FKM seal rather than using the standard EPDM configuration.
+
+Because the fluid is alkaline, please send the chemical concentration or treatment specification. Final compatibility should be confirmed against the actual chemistry.
+
+Regards,
+Helios Service Engineering

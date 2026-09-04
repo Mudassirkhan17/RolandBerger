@@ -1,0 +1,20 @@
+From: michael.berger@acme-chem.example
+To: lena.meyer@helios-demo.example
+Date: 2026-07-07
+Subject: HX-240 continuous operation at 95C
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Lena,
+
+We are preparing to replace two pumps on our CIP utility line. The fluid is chemically treated water, normal operating temperature is 95°C, pressure is around 7 bar, and the units will run continuously.
+
+Can the HX-240 operate continuously at 95°C with the standard seals? We would prefer not to change the current piping arrangement.
+
+Please also confirm whether you need any additional information from us before final selection.
+
+Regards,
+Michael Berger
+Process Engineering
+ACME Chemicals

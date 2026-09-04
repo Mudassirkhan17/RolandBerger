@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-1842",
+  "customer": "Delta Process GmbH",
+  "product": "HX-240",
+  "opened_date": "2026-01-14",
+  "severity": "Medium",
+  "status": "Closed",
+  "subject": "Seal degradation after hot cleaning-water duty",
+  "operating_conditions": {
+    "fluid": "Alkaline cleaning water",
+    "temperature": "94°C",
+    "pressure": "6.2 bar",
+    "seal": "EPDM",
+    "hours": "3,180 h"
+  },
+  "symptoms": "Progressive seal leakage observed after several months of continuous hot-duty operation.",
+  "diagnosis": "Pump hydraulic and casing conditions were within the HX-240 envelope. The installed EPDM seal was operating above its 90°C continuous guidance.",
+  "resolution": "Replaced EPDM seal with FKM. Confirmed shaft condition and alignment. Recommended 2,000-hour seal inspection interval in hot chemical service.",
+  "service_lesson": "When HX-240 runs above 90°C continuously, do not recommend the standard EPDM seal.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

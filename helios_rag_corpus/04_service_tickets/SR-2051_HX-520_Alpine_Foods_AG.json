@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-2051",
+  "customer": "Alpine Foods AG",
+  "product": "HX-520",
+  "opened_date": "2026-04-26",
+  "severity": "High",
+  "status": "Closed",
+  "subject": "Hygienic seal leak during repeated 132°C CIP exposure",
+  "operating_conditions": {
+    "fluid": "CIP solution",
+    "temperature": "132°C",
+    "pressure": "7.8 bar",
+    "seal": "Hygienic EPDM",
+    "hours": "1,140 h"
+  },
+  "symptoms": "Minor leakage after repeated hot CIP cycles.",
+  "diagnosis": "Continuous / repeated exposure exceeded the 125°C standard hygienic EPDM guidance.",
+  "resolution": "Changed to hygienic FKM seal and updated maintenance plan.",
+  "service_lesson": "Use hygienic FKM for HX-520 continuous or repeated duty above 125°C.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-2244",
+  "customer": "MedicaNova SA",
+  "product": "HX-520",
+  "opened_date": "2026-06-23",
+  "severity": "Medium",
+  "status": "Closed",
+  "subject": "Residue found after maintenance intervention",
+  "operating_conditions": {
+    "fluid": "Purified water / CIP",
+    "temperature": "128°C",
+    "pressure": "8.7 bar",
+    "seal": "FKM hygienic",
+    "hours": "760 h"
+  },
+  "symptoms": "Customer quality inspection identified residue after seal replacement.",
+  "diagnosis": "Service tool-cleaning step was not fully documented in the work record.",
+  "resolution": "Repeated hygienic cleaning, revised service checklist and retrained field technician.",
+  "service_lesson": "Hygienic service requires documented cleaning and tool-control steps.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

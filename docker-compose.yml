@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HELIOS_DATABASE_PATH=/data/helios.db
+      - HELIOS_CORPUS_PATH=/corpus
+    volumes:
+      - ./helios_rag_corpus:/corpus:ro      # corpus documents (read-only)
+      - helios_data:/data                   # SQLite + index cache (persistent)
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  helios_data:

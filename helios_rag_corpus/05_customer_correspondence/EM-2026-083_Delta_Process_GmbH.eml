@@ -1,0 +1,16 @@
+From: kai.schulz@delta-process.example
+To: service@helios-demo.example
+Date: 2026-06-05
+Subject: Seal material recommendation for 92C alkaline wash water
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Helios Service,
+
+We are planning an HX-240 replacement on a line that operates around 92°C for approximately 18 hours per day. The fluid is alkaline cleaning water.
+
+Our current installation has EPDM. Is the standard EPDM seal still acceptable at this duty or should we specify another material?
+
+Best regards,
+Kai Schulz

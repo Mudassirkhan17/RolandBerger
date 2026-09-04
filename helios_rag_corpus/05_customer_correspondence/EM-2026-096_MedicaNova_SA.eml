@@ -1,0 +1,16 @@
+From: lena.meyer@helios-demo.example
+To: claire.martin@medicanova.example
+Date: 2026-03-08
+Subject: RE: Hygienic pump for 132C purified-water circulation
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Dear Claire,
+
+The HX-520 is within its documented pump-body operating envelope for 132°C, 9 bar and 55 m³/h. The standard hygienic EPDM seal is recommended up to 125°C continuous, so we would specify the hygienic FKM seal for this duty.
+
+We would still validate the final duty point and cleaning regime before issue of the binding configuration.
+
+Kind regards,
+Lena Meyer

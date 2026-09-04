@@ -1,0 +1,20 @@
+From: lena.meyer@helios-demo.example
+To: michael.berger@acme-chem.example
+Date: 2026-07-08
+Subject: RE: HX-240 continuous operation at 95C
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Michael,
+
+The HX-240 pump body is rated for continuous fluid temperatures up to 95°C. However, the standard EPDM seal is recommended only up to 90°C continuous operation.
+
+For a continuous 95°C duty, our current guidance is to use the FKM seal configuration. Because your water is chemically treated, we would also like the treatment chemistry or a representative composition before giving final compatibility confirmation.
+
+If useful, I can arrange a short technical review with our Application Engineering team.
+
+Kind regards,
+Lena Meyer
+Sales Engineering
+Helios Industrial Systems

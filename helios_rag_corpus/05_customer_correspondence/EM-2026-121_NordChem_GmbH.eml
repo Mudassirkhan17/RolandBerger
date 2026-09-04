@@ -1,0 +1,18 @@
+From: anna.keller@nordchem.example
+To: service@helios-demo.example
+Date: 2026-07-30
+Subject: Can we extend HX-400 inspection beyond 6000 hours?
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello Service Team,
+
+Our HX-400 unit is approaching 5,600 operating hours. It has been stable and we would like to extend the planned inspection to 7,000 hours to avoid a shutdown next month.
+
+The pump handles hot process water around 118°C and occasionally cycles down to approximately 70°C.
+
+Can you approve the extension?
+
+Regards,
+Anna Keller

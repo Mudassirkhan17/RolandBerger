@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-1907",
+  "customer": "Baltic Process OÜ",
+  "product": "HX-300",
+  "opened_date": "2026-02-17",
+  "severity": "Low",
+  "status": "Closed",
+  "subject": "Low flow following commissioning",
+  "operating_conditions": {
+    "fluid": "Filtered industrial water",
+    "temperature": "68°C",
+    "pressure": "12.8 bar",
+    "seal": "FKM",
+    "hours": "42 h"
+  },
+  "symptoms": "Delivered flow was around 18% below expected duty point.",
+  "diagnosis": "Motor rotation was correct. Suction strainer contained construction debris and created excessive inlet restriction.",
+  "resolution": "Cleaned strainer and re-tested. Flow returned to expected value.",
+  "service_lesson": "Low flow was installation-related, not a product-capability issue.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

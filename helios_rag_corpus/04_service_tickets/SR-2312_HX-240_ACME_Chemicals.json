@@ -1,0 +1,27 @@
+{
+  "synthetic_demo_data": true,
+  "document_type": "Service Ticket",
+  "ticket_id": "SR-2312",
+  "customer": "ACME Chemicals",
+  "product": "HX-240",
+  "opened_date": "2026-07-08",
+  "severity": "Medium",
+  "status": "Closed",
+  "subject": "Request to confirm continuous 95°C duty",
+  "operating_conditions": {
+    "fluid": "Chemically treated water",
+    "temperature": "95°C",
+    "pressure": "7 bar",
+    "seal": "EPDM",
+    "hours": "0 h - pre-startup"
+  },
+  "symptoms": "Customer asked whether new HX-240 units could run continuously at 95°C using standard seals.",
+  "diagnosis": "Pump body is rated for 95°C continuous duty, but standard EPDM seal guidance is 90°C continuous.",
+  "resolution": "Recommended FKM seal option and Application Engineering review of water chemistry before final confirmation.",
+  "service_lesson": "Differentiate pump-body limit from seal-material limit in customer responses.",
+  "access": [
+    "Service",
+    "Engineering",
+    "Sales read-only"
+  ]
+}

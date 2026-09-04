@@ -1,0 +1,16 @@
+From: pieter.jansen@rhenus-coatings.example
+To: sales@helios-demo.example
+Date: 2026-04-01
+Subject: Pump selection for 17 bar coating circulation
+X-Helios-Synthetic-Demo: true
+X-Access: Sales, Service
+Content-Type: text/plain; charset=UTF-8
+
+Hello,
+
+We need 125 m³/h at 17 bar for a water-based coating circulation loop. Maximum temperature is 105°C.
+
+We initially looked at the HX-300. Is that model sufficient, or do we need the HX-400?
+
+Regards,
+Pieter Jansen
