@@ -32,9 +32,10 @@ variables before starting the application.
 
 The backend ingests the 40 synthetic PDF, JSON, and EML sources in
 `helios_rag_corpus/`, applies version and role metadata, creates section-aware chunks,
-and builds a cached local vector index. Answers and drafts include structured
-citations. The agent workflow persists state in SQLite and stops at a human approval
-checkpoint.
+and builds a cached hybrid semantic + lexical index. LangChain manages chat prompt
+composition, OpenAI invocation, and validated structured outputs. Answers and drafts
+include structured citations. The explicit agent workflow persists state in SQLite
+and stops at a human approval checkpoint.
 
 Build the frontend for production:
 

@@ -3,10 +3,10 @@ import os
 import re
 import time
 from pathlib import Path
-from openai import OpenAI
 
 from .corpus import CorpusIndex, SearchResult
 from .database import Database
+from .llm import LangChainLLM, RouteDecision
 from .models import Citation, DraftRequest, DraftResponse, DraftSection, KnowledgeResponse
 
 
@@ -82,11 +82,11 @@ class RAGService:
         self.products: dict[str, dict[str, str]] = json.loads(master_path.read_text(encoding="utf-8"))
         self.api_key = os.getenv("OPENAI_API_KEY", "").strip()
         self.model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
-        self.client = OpenAI(api_key=self.api_key) if self.api_key else None
+        self.llm = LangChainLLM(api_key=self.api_key, model=self.model) if self.api_key else None
 
     @property
     def mode(self) -> str:
-        return "llm" if self.client else "local-grounded"
+        return "langchain+llm" if self.llm else "local-grounded"
 
     def _is_conversation(self, question: str) -> bool:
         return bool(CONVERSATION_ONLY_RE.match(question.strip()))
@@ -107,17 +107,14 @@ class RAGService:
 
     def _chat(self, user_content: str, temperature: float = 0.3,
               history: list[dict[str, str]] | None = None) -> str:
-        assert self.client is not None
-        messages: list[dict[str, str]] = [{"role": "system", "content": SYSTEM_PROMPT}]
-        if history:
-            messages.extend(history)
-        messages.append({"role": "user", "content": user_content})
-        completion = self.client.chat.completions.create(
-            model=self.model,
+        assert self.llm is not None
+        return self.llm.text(
+            system_prompt=SYSTEM_PROMPT,
+            user_content=user_content,
             temperature=temperature,
-            messages=messages,  # type: ignore[arg-type]
+            history=history,
+            label="rag._chat",
         )
-        return (completion.choices[0].message.content or "").strip()
 
     def _citations(self, results: list[SearchResult]) -> list[Citation]:
         citations: list[Citation] = []
@@ -414,7 +411,7 @@ class RAGService:
         grounded = bool(retrieved) and not conversation
 
         try:
-            if self.client:
+            if self.llm:
                 answer = self._llm_answer(question, results if retrieved else [], history=history)
                 if conversation:
                     intent = "conversation"
@@ -436,7 +433,7 @@ class RAGService:
                 )
         except Exception as exc:
             error = f"LLM unavailable ({type(exc).__name__})"
-            if conversation or self.client:
+            if conversation or self.llm:
                 answer = LOCAL_GREETING if conversation else (
                     "I couldn't compose a reply just now. Please ask again — "
                     "a greeting, a model question, or a customer email."
@@ -478,7 +475,7 @@ class RAGService:
                 source_ids=[citation.source_id for citation in citations],
                 grounded=grounded,
                 latency_ms=latency_ms,
-                model=self.model if self.client else "Local grounded retrieval",
+                model=self.model if self.llm else "Local grounded retrieval",
                 prompt_version="knowledge-v2.0",
                 output=answer,
                 error=error,
@@ -525,7 +522,7 @@ class RAGService:
         request: DraftRequest,
         results: list[SearchResult],
     ) -> tuple[str, str, list[DraftSection]]:
-        assert self.client is not None
+        assert self.llm is not None
         if self._wants_proposal(request):
             section_list = "\n".join(f"SECTION: {name}" for name in PROPOSAL_SECTIONS)
             prompt = f"""Create a tailored technical-commercial proposal from the customer requirement and evidence.
@@ -583,7 +580,7 @@ BODY:
         sections: list[DraftSection] = []
         draft_error: str | None = None
 
-        if self.client:
+        if self.llm:
             try:
                 subject, body, sections = self._llm_draft(request, results)
             except Exception as exc:
@@ -607,7 +604,7 @@ BODY:
                 source_ids=[citation.source_id for citation in citations],
                 grounded=grounded,
                 latency_ms=latency_ms,
-                model=self.model if self.client else "Local grounded composer",
+                model=self.model if self.llm else "Local grounded composer",
                 prompt_version="draft-v2.0",
                 output=f"{subject}\n\n{body}",
                 error=draft_error,
@@ -722,15 +719,8 @@ Rules:
 - Only return clarify if you truly cannot decide between knowledge and draft/workflow.
 - If draft: judge whether it needs knowledge retrieval to compose correctly.
   Set needs_retrieval true if the email requires technical facts from the corpus.
-
-Respond with JSON only, no prose:
-{
-  "route": "knowledge|draft|workflow|clarify",
-  "confidence": 0.0-1.0,
-  "needs_retrieval": true|false,
-  "label": "one short label shown to user, e.g. Knowledge · HX-240 specs",
-  "clarification": "question to ask if route==clarify, else null"
-}"""
+- Return a short user-facing label, e.g. "Knowledge · HX-240 specs".
+- Set clarification only when route is clarify."""
 
     def chat_route(
         self,
@@ -739,7 +729,6 @@ Respond with JSON only, no prose:
         role: str = "Sales",
     ) -> "ChatRouteResult":
         """Classify message intent and execute the appropriate path inline."""
-        import json as _json
         from .models import ChatResponse
 
         # --- classify ---
@@ -749,25 +738,21 @@ Respond with JSON only, no prose:
         label = "Knowledge"
         clarification: str | None = None
 
-        if self.client:
+        if self.llm:
             try:
-                classification_resp = self.client.chat.completions.create(
-                    model=self.model,
+                decision = self.llm.structured(
+                    schema=RouteDecision,
+                    system_prompt=self._ROUTE_SYSTEM,
+                    user_content=message,
+                    history=history[-6:],
                     temperature=0.0,
-                    response_format={"type": "json_object"},
-                    messages=[
-                        {"role": "system", "content": self._ROUTE_SYSTEM},
-                        *[{"role": m["role"], "content": m["content"]} for m in history[-6:]],
-                        {"role": "user", "content": message},
-                    ],
+                    label="rag.chat_route",
                 )
-                raw = (classification_resp.choices[0].message.content or "{}").strip()
-                parsed = _json.loads(raw)
-                route = parsed.get("route", "knowledge")
-                confidence = float(parsed.get("confidence", 0.72))
-                needs_retrieval = bool(parsed.get("needs_retrieval", True))
-                label = str(parsed.get("label", route.capitalize()))
-                clarification = parsed.get("clarification")
+                route = decision.route
+                confidence = decision.confidence
+                needs_retrieval = decision.needs_retrieval
+                label = decision.label
+                clarification = decision.clarification
             except Exception:
                 # fall back to keyword heuristic
                 q = message.lower()

@@ -101,7 +101,7 @@ def health() -> dict[str, object]:
     return {
         "status": "ok",
         "mode": rag.mode,
-        "model": rag.model if rag.client else "Local grounded retrieval",
+        "model": rag.model if rag.llm else "Local grounded retrieval",
         "retrieval": index.retrieval_mode,
         "sources": index.source_count,
         "chunks": index.chunk_count,

@@ -15,6 +15,8 @@ import numpy as np
 from pypdf import PdfReader
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+from .retry import with_retries
+
 logger = logging.getLogger(__name__)
 
 EMBED_MODEL = "text-embedding-3-small"
@@ -379,7 +381,10 @@ class CorpusIndex:
             all_embeddings: list[list[float]] = []
             for batch_start in range(0, len(texts), EMBED_BATCH):
                 batch = texts[batch_start: batch_start + EMBED_BATCH]
-                response = client.embeddings.create(model=EMBED_MODEL, input=batch)
+                response = with_retries(
+                    lambda: client.embeddings.create(model=EMBED_MODEL, input=batch),
+                    label="corpus.embed_batch",
+                )
                 all_embeddings.extend(item.embedding for item in response.data)
                 logger.info("Embedded chunks %d–%d", batch_start, batch_start + len(batch))
             self.embeddings = np.array(all_embeddings, dtype=np.float32)
@@ -401,7 +406,10 @@ class CorpusIndex:
         try:
             from openai import OpenAI
             client = OpenAI(api_key=self.api_key)
-            response = client.embeddings.create(model=EMBED_MODEL, input=[query[:2000]])
+            response = with_retries(
+                lambda: client.embeddings.create(model=EMBED_MODEL, input=[query[:2000]]),
+                label="corpus.embed_query",
+            )
             return np.array(response.data[0].embedding, dtype=np.float32)
         except Exception as exc:
             logger.warning("Query embedding failed: %s", exc)

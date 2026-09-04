@@ -5,6 +5,7 @@ from typing import Any
 from fastapi import HTTPException
 
 from .database import Database, utc_now
+from .llm import InquiryClassification
 from .models import (
     DraftRequest,
     DraftResponse,
@@ -49,7 +50,7 @@ class WorkflowService:
             source_ids=[],
             grounded=None,
             latency_ms=None,
-            model=self.rag.model if self.rag.client else "Local grounded workflow",
+            model=self.rag.model if self.rag.llm else "Local grounded workflow",
             prompt_version="workflow-v1.0",
             activity_id=workflow_id,
         )
@@ -111,27 +112,25 @@ class WorkflowService:
         Returns (classification, error). error is None unless the LLM path
         failed and the workflow fell back to the offline heuristic.
         """
-        if not self.rag.client:
+        if not self.rag.llm:
             return self._classify_offline(inquiry), None
 
-        import json as _json
-        prompt = (
-            "Extract structured information from this sales inquiry. "
-            "Return JSON only:\n"
-            '{"intent":"email|proposal|service","product":"HX-240|HX-300|HX-400|HX-520|null",'
-            '"temperature":"value or null","pressure":"value or null","flow":"value or null",'
-            '"customer":"company name or null",'
-            '"missing":["list of key information that is absent but needed for a recommendation"]}\n\n'
-            f"Inquiry:\n{inquiry[:1200]}"
+        system_prompt = (
+            "Extract structured information from a Helios sales or service inquiry. "
+            "Identify whether the requested output is an email, proposal, or service response. "
+            "Extract the product, duty-point values, and customer when stated. "
+            "List important information that is missing for a safe recommendation. "
+            "Do not infer values that are not present in the inquiry."
         )
         try:
-            raw = self.rag.client.chat.completions.create(
-                model=self.rag.model,
+            classification = self.rag.llm.structured(
+                schema=InquiryClassification,
+                system_prompt=system_prompt,
+                user_content=inquiry[:1200],
                 temperature=0.0,
-                response_format={"type": "json_object"},
-                messages=[{"role": "user", "content": prompt}],
+                label="workflows.classify",
             )
-            return _json.loads(raw.choices[0].message.content or "{}"), None
+            return classification.model_dump(), None
         except Exception as exc:
             error = f"Classify LLM unavailable ({type(exc).__name__}); used offline extraction."
             return self._classify_offline(inquiry), error
@@ -285,7 +284,7 @@ class WorkflowService:
             source_ids=[item["source_id"] for item in draft.get("citations", [])],
             grounded=draft.get("grounded"),
             latency_ms=draft.get("latency_ms"),
-            model=self.rag.model if self.rag.client else "Local grounded workflow",
+            model=self.rag.model if self.rag.llm else "Local grounded workflow",
             prompt_version="workflow-v1.0",
             output=draft_output,
             error="; ".join(run_errors) if run_errors else None,
